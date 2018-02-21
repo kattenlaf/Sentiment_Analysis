@@ -8,26 +8,20 @@ consumer_secret = ''
 access_token = ''
 access_secret = ''
 
-class listener(StreamListener):
+class listener( StreamListener ):
 
-	def on_data(self, data):
+	def on_data( self, data ):
+
 		try:
-
-			tweet = data.split(',"text":"') [1].split('","source') [0]
+			tweet = data.split(',"text":"')[1].split('","source')[0]
 			print tweet
-
-			saveThis = str(time.time()) + '::' + tweet
-
+			saveThis = str( time.time() ) + '::' + tweet
 			saveFile = open('Test.csv', 'a')
-			saveNewFile = open('newFile.txt', 'a')
-			#saveFile.write(data)
-			saveFile.write(tweet)
-			saveNewFile.write(tweet)
+			saveFile.write(saveThis)
 			saveFile.write('\n')
-			saveNewFile.write('\n')
 			saveFile.close()
-			saveNewFile.close()
 			return True
+
 		except BaseException, e:
 			print 'failed ondata,',str(e)
 			time.sleep(10)
@@ -35,10 +29,10 @@ class listener(StreamListener):
 	def on_error(self, status):
 		print status
 
+auth = OAuthHandler( consumer_key, consumer_secret )
+auth.set_access_token( access_token, access_secret )
 
-auth = OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_secret)
-twitterStream = Stream(auth, listener())
+twitterStream = Stream( auth, listener() )
 twitterStream.filter(track=["phone"])
 
 #Stream tweets using the keyword in python2
