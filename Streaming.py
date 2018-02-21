@@ -3,6 +3,7 @@ from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 import time
 
+#Add your own consumer keys here 
 consumer_key = ''
 consumer_secret = ''
 access_token = ''
