@@ -1,13 +1,12 @@
-import data as data
 from tweepy import Stream
 from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 import time
 
-consumer_key = 'ZWXZ5yeixFdDWNkdNyk9ugNKq'
-consumer_secret = '8x3SbOD5CvybTSWCzLxJ4jAK4JxwkMCsZ4qJpmwb7q0Elu8LSe'
-access_token = '812361304640000000-PwUtZe0JkdNW0DMt00JFh612SnKCJ2O'
-access_secret = 'y5CS3IPhXjsbqIppQeX3EcMSOE8fK0yfoAQX05J87TZ2c'
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_secret = ''
 
 class Listener( StreamListener ):
 
